@@ -2,7 +2,7 @@
 {% block title %}Accueil | {{parent()}}{% endblock %}
 
 {% block main %}
-    <br>
+
     <h2 class="text-center">Chaton en vente</h2>
 
 {#        <a href="{{ path('detail',{'id':cat.id })}}">#}
@@ -13,12 +13,14 @@
         {%  for cat in cats %}
 
             <div class="col-4">
+                <a href="{{ path('detail',{'id':cat.id })}}">
             <div class="card" >
                 <img class="card-img-top" src="{{ asset('img/'~ cat.filename )}}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">{{ cat.name}} </h5>
                 </div>
             </div>
+                </a>
             </div>
         {%  endfor %}
     </div>
