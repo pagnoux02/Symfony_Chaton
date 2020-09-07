@@ -1,7 +1,26 @@
 {% extends 'layout.html.twig' %}
-{% block title %}Home | {{parent()}}{% endblock %}
+{% block title %}Accueil | {{parent()}}{% endblock %}
 
 {% block main %}
-    <h1>Salut</h1>
-    <p>mdr</p>
+    <br>
+    <h2 class="text-center">Chaton en vente</h2>
+
+{#        <a href="{{ path('detail',{'id':cat.id })}}">#}
+    <div class="container">
+
+
+    <div class="row">
+        {%  for cat in cats %}
+
+            <div class="col-4">
+            <div class="card" >
+                <img class="card-img-top" src="{{ asset('img/'~ cat.filename )}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ cat.name}} </h5>
+                </div>
+            </div>
+            </div>
+        {%  endfor %}
+    </div>
+    </div>
 {% endblock %}
