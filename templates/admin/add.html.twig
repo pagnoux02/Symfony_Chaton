@@ -4,5 +4,9 @@
 {% block main %}
 
     <h2 class="text-center">Ajouter un Chaton </h2>
+    {{ form_start(catForm) }}
+    {{ form_widget(catForm) }}
+    <button type="submit">Valider</button>
 
+    {{ form_end(catForm) }}
 {% endblock %}

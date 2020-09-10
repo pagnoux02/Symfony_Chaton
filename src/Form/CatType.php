@@ -3,7 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Cat;
+use Symfony\Component\DomCrawler\Image;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,11 +15,18 @@ class CatType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('filename')
+            ->add('picture',FileType::class,[
+                'mapped'=> false,
+//                'constraints'=> [ new Image([
+//                    'minWidth' => 200,
+//                    'maxWidth' => 400,
+//                    'minHeight' => 200,
+//                    'maxHeight' => 400,
+//                ])
+//                ],
+            ])
             ->add('description')
             ->add('price')
-            ->add('date_created')
-            ->add('is_sold')
         ;
     }
 

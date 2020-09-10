@@ -22,19 +22,18 @@ class CatRepository extends ServiceEntityRepository
     // /**
     //  * @return Cat[] Returns an array of Cat objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function findNameByLetter($value)
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $em = $this->getEntityManager();
+        $dql ="Select c.name
+        FROM App\Entity\Cat c 
+        Where c.name like :value ";
+        $query = $em->createQuery($dql);
+        $query->setParameter("value",$value.'%');
+        return $query->getResult();
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Cat

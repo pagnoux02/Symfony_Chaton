@@ -8,6 +8,8 @@
     <link rel="icon"  href="{{ asset('img/sadcat.png') }}" />
     <link rel="stylesheet" href="{{ asset("css/style.css") }}"/>
     <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap.min.css') }}" />
+
+
 </head>
 
 <body>
@@ -15,8 +17,23 @@
 <header>
     <h1 class="text-center bg-secondary"> <img src="{{ asset('img/sadcat.png') }}" width="50" height="50"/>Vente de Chaton<img src="{{ asset('img/sadcat.png') }}" width="50" height="50"/></h1>
 
+    <nav class="navbar navbar-light bg-dark justify-content-center">
+        <form class="form-inline">
+            <input  id="cat_get_name" class="form-control mr-sm-2" type="search"
+                    data-ajax-url-name="{{ url('api_cat_get_name') }}" placeholder="Recherche"
+                    aria-label="Recherche" list="recherche">
+            <datalist id="recherche">
+            </datalist>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
+            <p id="values"></p>
+        </form>
+    </nav>
 </header>
-
+<input type="text" name="example" list="exampleList">
+<datalist id="exampleList">
+    <option value="A">
+    <option value="B">
+</datalist>
 {#{% for label, messages in app.flashes %}#}
 {#    {% for message in messages %}#}
 {#        <div class="flash-{{ label }}">#}
@@ -36,4 +53,10 @@
 {% endblock %}
 <footer class="bottom text-center">©Chaton {{ "now"|date("Y") }}</footer>
 </body>
+<div>
+    {% block javascripts %}
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
+    {% endblock %}
+</div>
 </html>

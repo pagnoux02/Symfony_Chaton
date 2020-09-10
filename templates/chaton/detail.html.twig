@@ -13,7 +13,7 @@
             <div class="col-6">
             <img class="card-img-top" src="{{ asset('img/'~ cat.filename )}}" >
                 <p class="card-title h2">Seulement {{ cat.price}} € </p>
-
+                <button id="cart-add-button" data-cat-id="{{ cat.id }}" data-ajax-url="{{ url('api_add_to_cart') }}">Ajouter au panier</button>
         </div>
             <div class="col-6">
                 <h3>{{ cat.name }}</h3>
